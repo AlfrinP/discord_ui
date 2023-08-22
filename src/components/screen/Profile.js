@@ -45,16 +45,14 @@ export default function Profile() {
           </Span1>
         </Left>
         <Right className="dot">
-          <Img src={dot} className="dot"/>
+          <Img src={dot} className="dot" />
         </Right>
       </Top>
+      <hr style={{ width: "100%" }}></hr>
       <Mid>
         <Div className="searchbar">
-          <Img src={search} />
-          <Input
-            placeholder="Search or start new chat..."
-            style={{ color: "#292d2e" }}
-          />
+          <Img src={search} className="searchbar" />
+          <Input placeholder=" Search or start new chat..." />
         </Div>
         <Ul className="online">
           <Li style={{ color: "white" }}>Online Now</Li>
@@ -114,6 +112,7 @@ const Div = styled.div`
   &.searchbar {
     display: flex;
     align-items: center;
+    width: 100%;
   }
   &.secondslide {
     display: flex;
@@ -130,6 +129,7 @@ const Top = styled.div`
   align-items: center;
   width: 100%;
   height: fit-content;
+  justify-content: space-between;
 `;
 
 const Mid = styled.div`
@@ -206,15 +206,24 @@ const Text = styled.div`
 const Left = styled.div`
   display: flex;
   align-items: center;
+  gap: 12px;
 `;
 
 const Right = styled.div`
   border-radius: 50%;
-  border:2px solid red;
-  width: 47px;
-  padding:5px;
+  border: 1.5px solid red;
+  width: 45px;
+  padding: 5px;
 `;
-const Input = styled.input``;
+const Input = styled.input`
+  padding: 10px 30px;
+  position: relative;
+  border-radius: 10px;
+  color: #292d2e;
+  background: url("../../Assets/Music-dashboard-icons-1.svg") no-repeat left;
+  width: 100%;
+  border:1px solid red;
+`;
 const Profile1 = styled.img`
   width: 40px;
   border-radius: 50%;
@@ -223,7 +232,13 @@ const Img = styled.img`
   &.greydot {
     width: 20px;
   }
-  &.dot{
+  &.dot {
     border-radius: 50%;
+  }
+  &.search {
+    width: 20px;
+    position: absolute;
+    left: 105px;
+    z-index: 1;
   }
 `;
