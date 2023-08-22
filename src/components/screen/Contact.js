@@ -42,7 +42,7 @@ export default function Contact() {
         </Span>
       </Top>
       <Bottom>
-        <Div>
+        <Div className="mainprofile">
           <Img src={profile} className="profile" />
           <Span className="name">Michael</Span>
           <Span className="status">Online</Span>
@@ -50,7 +50,7 @@ export default function Contact() {
         <Div className="content container">
           {content.map((items, index) => (
             <React.Fragment key={index}>
-              <Div>
+              <Div className="contentfirst">
                 <Div className="content top">
                   <Span>{items.heading}</Span>
                   <Span>{items.subheading}</Span>
@@ -68,11 +68,30 @@ export default function Contact() {
 
 const Mdiv = styled.div`
   height: 100vh;
+  width: 300px;
 `;
-const Top = styled.div``;
+const Top = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 const Bottom = styled.div``;
-const Div = styled.div``;
+const Div = styled.div`
+  &.mainprofile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  &.contentfirst {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+  }
+`;
 const Span = styled.span``;
 const Img = styled.img`
-width:30px;`;
+  width: 30px;
+`;
 const Content = styled.div``;
