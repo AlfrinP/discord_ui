@@ -1,23 +1,9 @@
 *{
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
   font-family: "Inter";
   background: #161c1c;
-}
-img{
-  display: block;
-  width: 100%;
 }
 @font-face {
   font-family: 'Inter';
   src: url(./Assets/fonts/Inter-Regular.woff) format(woff),
        url(./Assets/fonts/Inter-Regular.woff2) format(woff2);
-}
-.app{
-  display: flex;
-  align-items: center;
-  height: 100dvh;
 }

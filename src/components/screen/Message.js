@@ -4,6 +4,7 @@ import profile from "../../Assets/Property 1=Image 19.png";
 import icon1 from "../../Assets/Property 1=phone.svg";
 import icon2 from "../../Assets/Property 1=video-camera.svg";
 import icon3 from "../../Assets/Option.svg";
+import MessageItems from "./MessageItems";
 
 export default function Message() {
   const icons = [icon1, icon2, icon3];
@@ -12,11 +13,11 @@ export default function Message() {
       <Top>
         <Left>
           <Img src={profile} className="profile" />
-          <Div
-            style={{ display: "flex", flexDirection: "column", gap: "5px" }}
-          >
-            <Span style={{fontSize:'1rem',fontWeight:'600'}}>Michael</Span>
-            <Span style={{fontSize:'0.65rem',fontWeight:'600'}}>Typing...</Span>
+          <Div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+            <Span style={{ fontSize: "1rem", fontWeight: "600" }}>Michael</Span>
+            <Span style={{ fontSize: "0.65rem", fontWeight: "600" }}>
+              Typing...
+            </Span>
           </Div>
         </Left>
         <Right>
@@ -29,8 +30,13 @@ export default function Message() {
           </Ul>
         </Right>
       </Top>
+      <Mid className="h-screen w-full flex flex-col">
+        <Span>Today</Span>
+        <div className=" h-full w-full">
+          <MessageItems />
+        </div>
+      </Mid>
       <Bottom>
-      <Span>Today</Span>
         <Ul>
           <Li>
             <Img />
@@ -49,20 +55,22 @@ export default function Message() {
   );
 }
 const Mdiv = Styled.div`
-width:550px;
 color:white;
-padding:10px`;
+padding:10px;`;
 const Top = Styled.div`
 display:flex;
 align-items:center;
 justify-content:space-between;
 width:100%;
 height:60px;`;
+const Mid = Styled.div`
+display:flex;
+width:100%;
+align-items:center;`;
 const Bottom = Styled.div`
 display:flex;
 flex-direction:column;
 align-items:center;
-height:calc(100vh - 60px )
 `;
 const Left = Styled.div`
 display:flex;

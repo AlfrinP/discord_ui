@@ -193,8 +193,6 @@ export default function Contact() {
 }
 
 const Mdiv = styled.div`
-  height: 100dvh;
-  width: 300px;
   color: white;
   display: flex;
   flex-direction: column;

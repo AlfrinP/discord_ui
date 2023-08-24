@@ -6,11 +6,11 @@ import Contact from "./components/screen/Contact";
 
 function App() {
   return (
-    <div className="app">
-      <Navbar />
-      <Profile />
-      <Message />
-      <Contact />
+    <div className="app flex items-center">
+      <div className=" w-1/12 h-screen"><Navbar /></div>
+      <div className=" w-1/5 h-screen "><Profile /></div>
+      <div className=" w-6/12 h-screen" ><Message /></div>
+      <div className=" w-1/5 h-screen"><Contact /></div>
     </div>
   );
 }

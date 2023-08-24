@@ -128,13 +128,11 @@ export default function Profile() {
 }
 
 const Mdiv = styled.div`
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: fit-content;
   gap: 10px;
-  width: 325px;
   padding: 10px 15px;
 `;
 

@@ -31,13 +31,12 @@ export default function Navbar() {
 }
 
 const Mdiv = styled.div`
+height:100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   border-right: 1.5px solid red;
-  width: 80px;
-  height: 100vh;
   padding: 20px 0 50px 0;
 `;
 
