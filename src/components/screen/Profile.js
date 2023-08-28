@@ -95,7 +95,7 @@ export default function Profile() {
           </Span>
         </Div>
         <Ul className="secondslide">
-          {Items.map((item) => (
+          {Items.slice(0, 5).map((item) => (
             <Li key={item.name} className="secondslide">
               <Div className="secondslide">
                 <Profile1 src={item.pic} />
@@ -134,6 +134,7 @@ const Mdiv = styled.div`
   gap: 10px;
   padding: 5px 0;
   border-right: 1.5px solid #242c2e;
+  height:100vh;
 `;
 
 const Div = styled.div`

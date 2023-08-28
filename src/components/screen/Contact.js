@@ -197,13 +197,13 @@ const Mdiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   padding: 10px 0;
 `;
 const Top = styled.div`
   display: flex;
   width: 100%;
-  height: 40px;
+  height: 45px;
   align-items: center;
   justify-content: space-between;
   padding: 0 10px;
@@ -217,7 +217,7 @@ const Div = styled.div`
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
   }
   &.contentfirst {
     display: flex;
@@ -281,6 +281,6 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 15px 0;
+  gap: 5px;
+  padding: 10px 0;
 `;
