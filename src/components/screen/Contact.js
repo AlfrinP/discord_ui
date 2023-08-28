@@ -144,7 +144,7 @@ export default function Contact() {
           <Img src={x} />
         </Span>
       </Top>
-      <hr style={{ width: "100%" }} />
+      <hr style={{ width: "100%", borderTop: "1.5px solid #242c2e" }} />
       <Bottom>
         <Div className="mainprofile">
           <Span className="profile">
@@ -198,15 +198,19 @@ const Mdiv = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  padding: 10px 0;
 `;
 const Top = styled.div`
   display: flex;
   width: 100%;
-  height: 65px;
+  height: 40px;
   align-items: center;
   justify-content: space-between;
+  padding: 0 10px;
 `;
-const Bottom = styled.div``;
+const Bottom = styled.div`
+  padding: 0 10px;
+`;
 const Div = styled.div`
   &.mainprofile {
     display: flex;

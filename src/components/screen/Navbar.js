@@ -13,17 +13,23 @@ export default function Navbar() {
   return (
     <>
       <Mdiv>
-        <Top src={chat2} className="chat1" />
+        <div className="rounded-full bg-white p-2">
+          <Top src={chat1} className="chat1 bg-white " />
+        </div>
         <Mid>
-          <Top src={chat2} className="chat2" />
+          <Top src={chat2} className="chat2 w-[35px]" />
           <Img src={phone} />
           <Img src={video} />
           <Img src={users} />
           <Img src={setting} />
         </Mid>
         <Bottom>
-          <Img src={plus} />
-          <Img src={user} className="user" />
+          <div className="bg-[#797a7c] rounded-full w-[40px] h-[40px] flex items-center justify-center p-2">
+          <Img src={plus} className="plus bg-inherit rounded-full"  />
+            </div>
+          <div className="bg-[#a8ff35] rounded-full w-[40px] h-[40px] flex items-center justify-center p-1">
+            <Img src={user} className="user bg-inherit rounded-full" />
+          </div>
         </Bottom>
       </Mdiv>
     </>
@@ -31,21 +37,16 @@ export default function Navbar() {
 }
 
 const Mdiv = styled.div`
-height:100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border-right: 1.5px solid red;
-  padding: 20px 0 50px 0;
+  border-right: 1.5px solid #242c2e;
+  padding: 50px 10px;
 `;
 
-const Top = styled.img`
-  width: 30px;
-  &.chat1{
-    filter: invert(1);
-  }
-`;
+const Top = styled.img``;
 
 const Mid = styled.div`
   display: flex;
@@ -62,8 +63,11 @@ const Bottom = styled.div`
 `;
 
 const Img = styled.img`
-  &.user {
-    width: 45px;
-  }
   width: 25px;
+  &.user{
+    width:100%;
+  }
+  &.plus{
+    width:100%;
+  }
 `;
