@@ -11,6 +11,7 @@ import profile7 from "../../Assets/Profile (11).jpg";
 import search from "../../Assets/Music-dashboard-icons-1.svg";
 import arrow from "../../Assets/Music-dashboard-icons.svg";
 import greydot from "../../Assets/grey dots.svg";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const Items = [
   { name: "Roshan", pic: profile1, message: "Hi Good Morning" },
@@ -22,108 +23,120 @@ const Items = [
 ];
 
 export default function Profile() {
+  const navigate = useNavigate();
   return (
-    <Mdiv>
-      <Top>
-        <Left>
-          <Profile1 src={profile7} />
-          <Span1>
-            <Span
-              style={{ color: "white", fontSize: "1rem", fontWeight: "600" }}
-            >
-              Allen
-            </Span>
-            <Span
-              style={{
-                color: "#717375",
-                fontSize: "0.75rem",
-                fontWeight: "600",
-              }}
-            >
-              My Account
-            </Span>
-          </Span1>
-        </Left>
-        <Right className="w-[20px] h-[45px] rounded-full flex items-center justify-center">
-          <Img src={dot} className="dot rounded-full" />
-        </Right>
-      </Top>
-      <hr style={{ width: "100%" , borderTop:'1.5px solid #242c2e' }}></hr>
-      <Mid>
-        <Div className="searchbar w-full relative">
-          <Img src={search} className="searchbar left-[5px]" />
-          <Input placeholder=" Search or start new chat..." className="py-2 pl-5" />
-        </Div>
-        <Ul className="online">
-          <Li style={{ color: "white", fontWeight: "600", fontSize:'1rem' }}>Online Now</Li>
-          <Li style={{ color: "#292d2e" }} className="online">
-            More <Img src={arrow} className="arrow" />
-          </Li>
-        </Ul>
-        <Ul className="firstslide">
-          {Items.slice(0, 5).map((item) => (
-            <Li key={item.name} className="firstslidelist">
-              <Profile1 src={item.pic} />
+    <div className="relative flex  flex-1 ">
+      <Mdiv>
+        <Top>
+          <Left>
+            <Profile1 src={profile7} />
+            <Span1>
+              <Span
+                style={{ color: "white", fontSize: "1rem", fontWeight: "600" }}
+              >
+                Allen
+              </Span>
               <Span
                 style={{
-                  color: "#292d2e",
+                  color: "#717375",
                   fontSize: "0.75rem",
-                  width: "100%",
-                  textAlign: "center",
+                  fontWeight: "600",
                 }}
               >
-                More
+                My Account
               </Span>
+            </Span1>
+          </Left>
+          <Right className="w-[20px] h-[45px] rounded-full flex items-center justify-center">
+            <Img src={dot} className="dot rounded-full" />
+          </Right>
+        </Top>
+        <hr style={{ width: "100%", borderTop: "1.5px solid #242c2e" }}></hr>
+        <Mid>
+          <Div className="searchbar w-full py-2 px-2 ">
+            <Img src={search} className="searchbar " />
+            <Input
+              placeholder=" Search or start new chat..."
+              className="border-0 outline-0 text-sm h-full w-full flex-1"
+            />
+          </Div>
+          <Ul className="online">
+            <Li style={{ color: "white", fontWeight: "600", fontSize: "1rem" }}>
+              Online Now
             </Li>
-          ))}
-        </Ul>
-      </Mid>
-      <Bottom>
-        <Div className="message font" style={{fontSize:'1rem',}}>
-          Messages
-          <Span
-            style={{
-              width: "30px",
-              background: "blue",
-              padding: "2px 7px",
-              borderRadius: "40px",
-              fontSize: "0.65rem",
-              textAlign: "center",
-            }}
-          >
-            20
-          </Span>
-        </Div>
-        <Ul className="secondslide">
-          {Items.slice(0, 5).map((item) => (
-            <Li key={item.name} className="secondslide">
-              <Div className="secondslide">
-                <Profile1 src={item.pic} />
-                <Text>
-                  <Span
-                    style={{
-                      color: "white",
-                      fontSize: "0.85rem",
-                      fontWeight: "600",
-                    }}
-                  >
-                    {item.name}
-                  </Span>
-                  <Span style={{ color: "#717375", fontSize: "0.75rem" }}>
-                    {item.message}
-                  </Span>
-                </Text>
-              </Div>
-
-              <Time>
-                <Img src={greydot} className="greydot" />
-                12:45 PM
-              </Time>
+            <Li style={{ color: "#292d2e" }} className="online">
+              More <Img src={arrow} className="arrow" />
             </Li>
-          ))}
-        </Ul>
-      </Bottom>
-    </Mdiv>
+          </Ul>
+          <Ul className="firstslide">
+            {Items.slice(0, 5).map((item) => (
+              <Li key={item.name} className="firstslidelist">
+                <Profile1 src={item.pic} className="cursor-pointer" />
+                <Span
+                  style={{
+                    color: "#292d2e",
+                    fontSize: "0.75rem",
+                    width: "100%",
+                    textAlign: "center",
+                  }}
+                >
+                  More
+                </Span>
+              </Li>
+            ))}
+          </Ul>
+        </Mid>
+        <Bottom>
+          <Div className="message font" style={{ fontSize: "1rem" }}>
+            Messages
+            <Span
+              style={{
+                width: "30px",
+                background: "blue",
+                padding: "2px 7px",
+                borderRadius: "40px",
+                fontSize: "0.65rem",
+                textAlign: "center",
+              }}
+            >
+              20
+            </Span>
+          </Div>
+          <Ul className="secondslide">
+            {Items.slice(0, 5).map((item) => (
+              <Li
+                key={item.name}
+                className="secondslide"
+                onClick={() => navigate(`/${item.name}`)}
+              >
+                <Div className="secondslide cursor-pointer">
+                  <Profile1 src={item.pic} />
+                  <Text>
+                    <Span
+                      style={{
+                        color: "white",
+                        fontSize: "0.85rem",
+                        fontWeight: "600",
+                      }}
+                    >
+                      {item.name}
+                    </Span>
+                    <Span style={{ color: "#717375", fontSize: "0.75rem" }}>
+                      {item.message}
+                    </Span>
+                  </Text>
+                </Div>
+                <Time>
+                  <Img src={greydot} className="greydot" />
+                  12:45 PM
+                </Time>
+              </Li>
+            ))}
+          </Ul>
+        </Bottom>
+      </Mdiv>
+      <Outlet />
+    </div>
   );
 }
 
@@ -134,7 +147,9 @@ const Mdiv = styled.div`
   gap: 10px;
   padding: 5px 0;
   border-right: 1.5px solid #242c2e;
-  height:100vh;
+  height: 100vh;
+  width: 100%;
+  max-width: 280px;
 `;
 
 const Div = styled.div`
@@ -142,6 +157,9 @@ const Div = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
+    border: 1px solid #242c2e;
+    border-radius:5px;
+    gap:2px;
   }
   &.secondslide {
     display: flex;
@@ -266,11 +284,9 @@ const Right = styled.div`
   padding: 5px;
 `;
 const Input = styled.input`
-  border-radius: 10px;
   color: #292d2e;
   background: url("../../Assets/Music-dashboard-icons-1.svg") no-repeat left;
   width: 100%;
-  border: 1px solid #242c2e;
   font-size: "0.5rem";
 `;
 const Profile1 = styled.img`
@@ -283,8 +299,6 @@ const Img = styled.img`
   }
   &.searchbar {
     width: 20px;
-    position: absolute;
-    z-index: 1;
   }
   &.arrow {
     width: 15px;

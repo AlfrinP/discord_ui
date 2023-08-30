@@ -6,14 +6,14 @@ import icon2 from "../../Assets/Property 1=video-camera.svg";
 import icon3 from "../../Assets/Option.svg";
 import thumbsup from "../../Assets/emojione_thumbs-up.svg";
 import fire from "../../Assets/Group 3465375.svg";
-import threewhite from "../../Assets/White Option.svg";
-import face from "../../Assets/Group 3465392.svg";
 import face1 from "../../Assets/Group 3465380.svg";
-import reply from "../../Assets/Property 1=white share.svg";
 import mic from "../../Assets/Group 3465393.svg";
 import clip from "../../Assets/attachment 2.svg";
+import { Outlet, useNavigate , useLocation} from "react-router";
+import Contact from "./Contact";
 
 export default function Message() {
+  const location = useLocation();
   const icons = [icon1, icon2, icon3];
   const [inputText, setInputText] = useState("");
   const [messages, setMessages] = useState([]);
@@ -28,112 +28,121 @@ export default function Message() {
       setInputText("");
     }
   };
-
+  const navigate = useNavigate();
   return (
-    <Mdiv className="h-screen">
-      <Top className="h-[55px]">
-        <Left>
-          <Img src={profile} className="profile" />
-          <Div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
-            <Span style={{ fontSize: "1rem", fontWeight: "600" }}>Michael</Span>
-            <Span style={{ fontSize: "0.65rem", fontWeight: "600" }}>
-              Typing...
-            </Span>
-          </Div>
-        </Left>
-        <Right>
-          <Ul className="right">
-            {icons.map((icons, index) => (
-              <Li key={index} className="right">
-                <Img src={icons} className="icons" />
-              </Li>
-            ))}
-          </Ul>
-        </Right>
-      </Top>
-      <hr
-        className="w-full"
-        style={{ width: "100%", borderTop: "1.5px solid #242c2e" }}
-      />
-      <Mid className="w-full flex flex-col gap-4 overflow-y-scroll">
-        <Span>Today</Span>
-        <div className="w-full float-left">
-          <div className="w-fit flex flex-col gap-2">
-            <div className="w-fit px-3 py-2 text-sm sm:text-base float-left rounded-r-lg rounded-b-lg bg-[#242c2e]">
-              Hello Nazir Ali
+    <div className="absolute md:relative flex-1 flex top-0 bottom-0 left-0 right-0  " >
+      <Mdiv className="h-screen flex-1">
+        <Top className="h-[55px] cursor-pointer" onClick={() => navigate(`${location.pathname}/contact`)}>
+          <Left>
+            <Img src={profile} className="profile" />
+            <Div
+              style={{ display: "flex", flexDirection: "column", gap: "5px" }}
+            >
+              <Span style={{ fontSize: "1rem", fontWeight: "600" }}>
+               {location.pathname.split('/')[1]}
+              </Span>
+              <Span
+                style={{ fontSize: "0.65rem", fontWeight: "600", color: "" }}
+              >
+                Typing...
+              </Span>
+            </Div>
+          </Left>
+          <Right>
+            <Ul className="right">
+              {icons.map((icons, index) => (
+                <Li key={index} className="right">
+                  <Img src={icons} className="icons" />
+                </Li>
+              ))}
+            </Ul>
+          </Right>
+        </Top>
+        <hr
+          className="w-full"
+          style={{ width: "100%", borderTop: "1.5px solid #242c2e" }}
+        />
+        <Mid className="w-full flex flex-col gap-4 overflow-y-auto">
+          <Span>Today</Span>
+          <div className="w-full float-left">
+            <div className="w-fit flex flex-col gap-2">
+              <div className="w-fit px-3 py-2 text-sm sm:text-base float-left rounded-r-lg rounded-b-lg bg-[#242c2e]">
+                Hello Nazir Ali
+              </div>
+              <div className="flex justify-between w-full">
+                <div className=""></div>
+                <div className="text-xs">12:45 PM</div>
+              </div>
             </div>
-            <div className="flex justify-between w-full">
-              <div className=""></div>
+          </div>
+
+          <div className="w-full flex flex-col gap-2">
+            <div className="w-1/2 px-3 py-2 text-sm sm:text-base float-left rounded-r-lg rounded-b-lg bg-[#242c2e]">
+              Good afternoon, may I ask for your help to make me a real estate
+              landing page? I will send more details as soon as you approve it.
+              Thanks!
+            </div>
+            <div className="flex justify-between w-1/2">
+              <div className="flex gap-2">
+                <Img src={fire} />
+                <Img src={thumbsup} />
+              </div>
               <div className="text-xs">12:45 PM</div>
             </div>
           </div>
-        </div>
 
-        <div className="w-full flex flex-col gap-2">
-          <div className="w-1/2 px-3 py-2 text-sm sm:text-base float-left rounded-r-lg rounded-b-lg bg-[#242c2e]">
-            Good afternoon, may I ask for your help to make me a real estate
-            landing page? I will send more details as soon as you approve it.
-            Thanks!
-          </div>
-          <div className="flex justify-between w-1/2">
-            <div className="flex gap-2">
-              <Img src={fire} />
-              <Img src={thumbsup} />
-            </div>
-            <div className="text-xs">12:45 PM</div>
-          </div>
-        </div>
-
-        <div className="w-full">
-          <div className="w-fit flex flex-col gap-2 float-right">
-            <div className="w-fit px-3 py-2 text-sm sm:text-base float-left rounded-l-lg rounded-b-lg bg-[#48a5c4] text-black">
-              Hi Michael!
-            </div>
-            <div className="w-full">
-              <div className="text-xs">12:45 PM</div>
-            </div>
-          </div>
-        </div>
-        {messages.map((message, index) => (
           <div className="w-full">
-            <div className="w-fit max-w-[50%] flex flex-col gap-2 float-right">
+            <div className="w-fit flex flex-col gap-2 float-right">
               <div className="w-fit px-3 py-2 text-sm sm:text-base float-left rounded-l-lg rounded-b-lg bg-[#48a5c4] text-black">
-                <div key={index} className="bg-inherit">
-                  {message}
-                </div>
+                Hi Michael!
               </div>
               <div className="w-full">
                 <div className="text-xs">12:45 PM</div>
               </div>
             </div>
           </div>
-        ))}
-      </Mid>
-      <Bottom className="h-[60px] border-t-1 p-1">
-        <Ul className="flex gap-5 w-full justify-between items-center">
-          <Li className="w-fit">
-            <Img src={clip} />
-          </Li>
-          <Li className="w-full ">
-            <Div className=" flex items-center justify-between bg-inherit gap-2 rounded-xl bg-slate-700 p-2">
-              <Input
-                placeholder="Message to Teddy..."
-                className="w-full p-1 bg-inherit"
-                value={inputText}
-                onChange={handleInputChange}
-                onKeyDown={handleInputEnter}
-              />
-              <div className="p-1 rounded-full bg-white">
-                <Img src={face1} className="" />
+          {messages.map((message, index) => (
+            <div className="w-full">
+              <div className="w-fit max-w-[50%] flex flex-col gap-2 float-right">
+                <div className="w-fit px-3 py-2 text-sm sm:text-base float-left rounded-l-lg rounded-b-lg bg-[#48a5c4] text-black">
+                  <div key={index} className="bg-inherit">
+                    {message}
+                  </div>
+                </div>
+                <div className="w-full">
+                  <div className="text-xs">12:45 PM</div>
+                </div>
               </div>
-            </Div>
-          </Li>
-          <Li className="w-fit">
-            <Img src={mic} />
-          </Li>
-        </Ul>
-      </Bottom>
-    </Mdiv>
+            </div>
+          ))}
+        </Mid>
+        <Bottom className="h-[60px] border-t-1 p-1">
+          <Ul className="flex gap-5 w-full justify-between items-center">
+            <Li className="w-fit">
+              <Img src={clip} />
+            </Li>
+            <Li className="w-full ">
+              <Div className=" flex items-center justify-between bg-inherit gap-2 rounded-xl bg-slate-700 p-2">
+                <Input
+                  placeholder="Message to Teddy..."
+                  className="w-full p-1 bg-inherit"
+                  value={inputText}
+                  onChange={handleInputChange}
+                  onKeyDown={handleInputEnter}
+                />
+                <div className="p-1 rounded-full bg-white">
+                  <Img src={face1} className="" />
+                </div>
+              </Div>
+            </Li>
+            <Li className="w-fit">
+              <Img src={mic} />
+            </Li>
+          </Ul>
+        </Bottom>
+      </Mdiv>
+      <Outlet />
+    </div>
   );
 }
 

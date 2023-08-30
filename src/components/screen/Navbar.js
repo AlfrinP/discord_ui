@@ -8,10 +8,11 @@ import users from "../../Assets/Property 1=users.svg";
 import setting from "../../Assets/Property 1=setting (1).svg";
 import plus from "../../Assets/icons.svg";
 import user from "../../Assets/Property 1=Image 8.png";
+import { Outlet } from "react-router";
 
 export default function Navbar() {
   return (
-    <>
+    <div style={{width:'100%',height:'100vh', display:'flex'}}>
       <Mdiv>
         <div className="rounded-full bg-white p-2">
           <Top src={chat1} className="chat1 bg-white " />
@@ -32,7 +33,8 @@ export default function Navbar() {
           </div>
         </Bottom>
       </Mdiv>
-    </>
+      <Outlet/>
+    </div>
   );
 }
 

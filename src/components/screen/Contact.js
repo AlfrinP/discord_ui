@@ -5,8 +5,11 @@ import profile from "../../Assets/Property 1=Image 19.png";
 import image11 from "../../Assets/image_processing20220225-29217-hv4dvv.jpg";
 import image12 from "../../Assets/image_processing20220305-7813-19y4c1j.jpg";
 import docs from "../../Assets/Component 96.svg";
+import { useNavigate,useLocation } from "react-router";
 
 export default function Contact() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const content = [
     {
       heading: "Media",
@@ -137,10 +140,10 @@ export default function Contact() {
   ];
 
   return (
-    <Mdiv>
+    <Mdiv className="absolute lg:relative top-0 left-0 right-0 bottom-0 w-full max-w-full lg:max-w-[280px] ">
       <Top>
         <Span style={{ fontWeight: "600" }}>Contact details</Span>
-        <Span className="close">
+        <Span className="close cursor-pointer" onClick={() => navigate(-1)}>
           <Img src={x} />
         </Span>
       </Top>
@@ -150,7 +153,7 @@ export default function Contact() {
           <Span className="profile">
             <Img src={profile} className="profile" />
           </Span>
-          <Span className="name">Michael</Span>
+          <Span className="name">{location.pathname.split('/')[1]}</Span>
           <Span className="status">Online</Span>
         </Div>
         <Div className="content container">
@@ -199,6 +202,7 @@ const Mdiv = styled.div`
   align-items: center;
   gap: 5px;
   padding: 10px 0;
+  flex: 1;
 `;
 const Top = styled.div`
   display: flex;
